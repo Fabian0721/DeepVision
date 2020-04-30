@@ -1,0 +1,1 @@
+from PIL import Imageimage = Image.open("dog.jpg")print(image.size)print(type(image.size))
