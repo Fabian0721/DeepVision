@@ -89,5 +89,9 @@
     </state>
     <state width="1419" height="26" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588291531912" />
     <state width="1899" height="210" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1588285371773" />
+    <state x="563" y="248" key="refactoring.ChangeSignatureDialog" timestamp="1588322321573">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="563" y="248" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1588322321573" />
   </component>
 </project>
