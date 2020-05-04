@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b333314a-8631-4155-9e46-cd45f27fb5eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Worksheet1.1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet1.1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Worksheet1.1/deep_vision_ex1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Worksheet1.1/patchDog.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet1.1/patchDog.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Worksheet1.1/worksheet1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet1.1/worksheet1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Worksheet1.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Worksheet1.2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Worksheets/deep_vision_ex1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheets/deep_vision_ex1.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,21 +62,25 @@
     </recent_temporary>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1419" height="245" key="GridCell.Tab.0.bottom" timestamp="1588609794842">
+    <state width="1419" height="245" key="GridCell.Tab.0.bottom" timestamp="1588623701029">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588609794842" />
-    <state width="1419" height="245" key="GridCell.Tab.0.center" timestamp="1588609794840">
+    <state width="1419" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588623583742" />
+    <state width="1419" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.23.1920.1057@0.0.1440.900" timestamp="1588623701029" />
+    <state width="1419" height="245" key="GridCell.Tab.0.center" timestamp="1588623701028">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588609794840" />
-    <state width="1419" height="245" key="GridCell.Tab.0.left" timestamp="1588609794840">
+    <state width="1419" height="245" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588623583740" />
+    <state width="1419" height="245" key="GridCell.Tab.0.center/0.0.1440.900/1440.23.1920.1057@0.0.1440.900" timestamp="1588623701028" />
+    <state width="1419" height="245" key="GridCell.Tab.0.left" timestamp="1588623701027">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588609794840" />
-    <state width="1419" height="245" key="GridCell.Tab.0.right" timestamp="1588609794841">
+    <state width="1419" height="245" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588623583740" />
+    <state width="1419" height="245" key="GridCell.Tab.0.left/0.0.1440.900/1440.23.1920.1057@0.0.1440.900" timestamp="1588623701027" />
+    <state width="1419" height="245" key="GridCell.Tab.0.right" timestamp="1588623701028">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588609794841" />
+    <state width="1419" height="245" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588623583741" />
+    <state width="1419" height="245" key="GridCell.Tab.0.right/0.0.1440.900/1440.23.1920.1057@0.0.1440.900" timestamp="1588623701028" />
   </component>
 </project>
