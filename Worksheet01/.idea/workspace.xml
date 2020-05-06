@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf88991a-6b75-40cb-85bb-448b0ae66a30" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Worksheet1.1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet1.1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Worksheet1.1/patchDog.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet1.1/patchDog.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Worksheet1.2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet1.2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Worksheet1.2/ConvolveAndKernel.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet1.2/ConvolveAndKernel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Worksheets/deep_vision_ex1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheets/deep_vision_ex1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConvolveAndKernel.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolveAndKernel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patchDog.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/patchDog.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worksheet01.py" beforeDir="false" afterPath="$PROJECT_DIR$/worksheet01.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +32,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -84,41 +83,53 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588778177288" />
+    <state x="464" y="293" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1588803008696">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="464" y="293" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588803008696" />
     <state x="507" y="162" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1588778149337">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="507" y="162" key="#com.intellij.ide.macro.MacrosDialog/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588778149337" />
-    <state width="1419" height="191" key="GridCell.Tab.0.bottom" timestamp="1588781303645">
+    <state width="1419" height="191" key="GridCell.Tab.0.bottom" timestamp="1588806321696">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="191" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588781303645" />
-    <state width="1419" height="191" key="GridCell.Tab.0.center" timestamp="1588781303643">
+    <state width="1419" height="191" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588806321696" />
+    <state width="1419" height="191" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588801594782" />
+    <state width="1419" height="191" key="GridCell.Tab.0.center" timestamp="1588806321695">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="191" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588781303643" />
-    <state width="1419" height="191" key="GridCell.Tab.0.left" timestamp="1588781303642">
+    <state width="1419" height="191" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588806321695" />
+    <state width="1419" height="191" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588801594781" />
+    <state width="1419" height="191" key="GridCell.Tab.0.left" timestamp="1588806321694">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="191" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588781303642" />
-    <state width="1419" height="191" key="GridCell.Tab.0.right" timestamp="1588781303644">
+    <state width="1419" height="191" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588806321694" />
+    <state width="1419" height="191" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588801594781" />
+    <state width="1419" height="191" key="GridCell.Tab.0.right" timestamp="1588806321696">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="191" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588781303644" />
-    <state width="1419" height="304" key="GridCell.Tab.1.bottom" timestamp="1588781248143">
+    <state width="1419" height="191" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588806321696" />
+    <state width="1419" height="191" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588801594782" />
+    <state width="1419" height="304" key="GridCell.Tab.1.bottom" timestamp="1588806321688">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588781248143" />
-    <state width="1419" height="304" key="GridCell.Tab.1.center" timestamp="1588781248141">
+    <state width="1419" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588806321688" />
+    <state width="1419" height="304" key="GridCell.Tab.1.center" timestamp="1588806321687">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="304" key="GridCell.Tab.1.center/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588781248141" />
-    <state width="1419" height="304" key="GridCell.Tab.1.left" timestamp="1588781248141">
+    <state width="1419" height="304" key="GridCell.Tab.1.center/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588806321687" />
+    <state width="1419" height="304" key="GridCell.Tab.1.left" timestamp="1588806321687">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="304" key="GridCell.Tab.1.left/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588781248141" />
-    <state width="1419" height="304" key="GridCell.Tab.1.right" timestamp="1588781248142">
+    <state width="1419" height="304" key="GridCell.Tab.1.left/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588806321687" />
+    <state width="1419" height="304" key="GridCell.Tab.1.right" timestamp="1588806321688">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="304" key="GridCell.Tab.1.right/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588781248142" />
+    <state width="1419" height="304" key="GridCell.Tab.1.right/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1588806321688" />
+    <state x="221" y="89" key="SettingsEditor" timestamp="1588806435741">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900/1440.23.1920.1057@0.0.1440.900" timestamp="1588806435741" />
   </component>
 </project>
