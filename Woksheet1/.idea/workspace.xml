@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2c5dc5d1-c89c-4da8-aa0e-57945b6f81da" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Worksheet1.1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet1.1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Worksheet1.1/ConvolveAndKernel.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet1.1/ConvolveAndKernel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Worksheet1.1/Patching.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet1.1/Patching.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Worksheet1.1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet1.1/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Worksheets/deep_vision_ex1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheets/deep_vision_ex1.pdf" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1bU1IjEMPAexnJDS0MDCWSWjv9a" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+</project>
