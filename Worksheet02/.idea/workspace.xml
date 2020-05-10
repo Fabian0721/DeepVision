@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80b9e9ce-bcaa-4b34-b9de-d67eb4777dda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Worksheet01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Worksheet01/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -23,5 +31,54 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="tasks" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Worksheet02" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/3.8/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tasks.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589130179190">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1589130179190" />
+    <state width="1419" height="133" key="GridCell.Tab.0.bottom" timestamp="1589150529231">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="312" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1589146877869" />
+    <state width="1419" height="133" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589150529231" />
+    <state width="1419" height="133" key="GridCell.Tab.0.center" timestamp="1589150529230">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="312" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1589146877868" />
+    <state width="1419" height="133" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1589150529230" />
+    <state width="1419" height="133" key="GridCell.Tab.0.left" timestamp="1589150529230">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="312" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1589146877867" />
+    <state width="1419" height="133" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1589150529230" />
+    <state width="1419" height="133" key="GridCell.Tab.0.right" timestamp="1589150529231">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="312" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1589146877869" />
+    <state width="1419" height="133" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1589150529231" />
   </component>
 </project>

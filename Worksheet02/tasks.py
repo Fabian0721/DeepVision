@@ -2,6 +2,7 @@ import numpy as np
 import sklearn.datasets
 import sklearn.neighbors
 import matplotlib.pyplot as plt
+from ipython_genutils.py3compat import xrange
 
 
 class KNN(object):
@@ -9,16 +10,38 @@ class KNN(object):
         self.n_neighbors = n_neighbors
 
     def fit(self, x, y):
-        self.x = x
+        self.x = x  # Training data set
         self.y = y
 
     def kneighbors(self, xquery):
-        # TODO return indices of nearest neighbor points and distances to them
-        pass
+        """
+        :param xquery: Data set to be compared with the training data set
+        :return: Nearest neighbors
+        """
+        num_test = xquery[0]
+
+        for i in xrange(num_test):
+            distances = np.sum(np.abs(self.x - xquery[i, :]), axis=1)
+        min_index = np.argpartition(distances, self.n_neighbors)  # Get n_neighbor indexes with the smallest distance
+
+        for i in xrange(min_index):
+            nearest_neighbors = min_index[i], distances[min_index[i]]
+
+        return nearest_neighbors
 
     def predict(self, xquery):
-        # TODO return predicted label for each query point
-        pass
+        """
+        :param xquery: data set to be classified
+        :return: Predicted label to the query
+        """
+        neighbors = KNN.kneighbors(xquery)
+        num_test = xquery[0]
+        yprediction = np.zeros(num_test, dtype=self.y.dtype)
+
+        for i in xrange(neighbors):
+            yprediction[i] = self.y[max(neighbors[i][1], key=neighbors[i][1].count)]
+
+        return yprediction
 
 
 def task1():
@@ -28,10 +51,12 @@ def task1():
     n_test = n - n_train
     x, y = sklearn.datasets.make_moons(n_samples=n, noise=0.2,
                                        random_state=0)
-    xtrain, ytrain = x[:n_train,...], y[:n_train,...]
-    xtest, ytest = x[n_train:,...], y[n_train:,...]
+    xtrain, ytrain = x[:n_train, ...], y[:n_train, ...]
+    xtest, ytest = x[n_train:, ...], y[n_train:, ...]
 
-    # TODO visualize data via scatterplot
+    # Visualize data via scatterplot
+    plt.scatter(x[:, 0], x[:, 1], s=40, c=y)
+    plt.show()
 
     # TODO for k=5 check that our implementation predicts the same as that of
     # sklearn.
@@ -40,7 +65,7 @@ def task1():
     knn = KNN(n_neighbors=k)
 
     # analyze different values of k
-    ks = [2**i for i in range(10)]
+    ks = [2 ** i for i in range(10)]
     for k in ks:
         # TODO fit and evaluate accuracy on test data
         knn = KNN(n_neighbors=k)
@@ -53,12 +78,12 @@ def task1():
 
 def task2():
     data = sklearn.datasets.load_digits()
-    x, y = (data.images/16.0).reshape(-1, 8*8), data.target
+    x, y = (data.images / 16.0).reshape(-1, 8 * 8), data.target
     xtrain, xtest, ytrain, ytest = sklearn.model_selection.train_test_split(
         x, y, test_size=0.25, shuffle=True, random_state=0)
 
     # TODO analyze accuracy for different values of k
-    ks = [2**i for i in range(4)]
+    ks = [2 ** i for i in range(4)]
 
     # TODO plot nearest neighbors
 
@@ -67,19 +92,19 @@ def make_data(noise=0.2, outlier=1):
     prng = np.random.RandomState(0)
     n = 500
 
-    x0 = np.array([0,0])[None,:] + noise*prng.randn(n, 2)
+    x0 = np.array([0, 0])[None, :] + noise * prng.randn(n, 2)
     y0 = np.ones(n)
-    x1 = np.array([1,1])[None,:] + noise*prng.randn(n, 2)
-    y1 = -1*np.ones(n)
+    x1 = np.array([1, 1])[None, :] + noise * prng.randn(n, 2)
+    y1 = -1 * np.ones(n)
 
-    x = np.concatenate([x0,x1])
-    y = np.concatenate([y0,y1]).astype(np.int32)
+    x = np.concatenate([x0, x1])
+    y = np.concatenate([y0, y1]).astype(np.int32)
 
     xtrain, xtest, ytrain, ytest = sklearn.model_selection.train_test_split(
         x, y, test_size=0.1, shuffle=True, random_state=0)
     xplot, yplot = xtrain, ytrain
 
-    outlier = outlier*np.array([1,1.75])[None,:]
+    outlier = outlier * np.array([1, 1.75])[None, :]
     youtlier = np.array([-1])
     xtrain = np.concatenate([xtrain, outlier])
     ytrain = np.concatenate([ytrain, youtlier])
@@ -116,6 +141,6 @@ def task3():
 
 
 if __name__ == "__main__":
-    #task1()
-    #task2()
-    #task3()
+    task1()
+    # task2()
+    # task3()
