@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cf88991a-6b75-40cb-85bb-448b0ae66a30" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConvolveAndKernel.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolveAndKernel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patchDog.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/patchDog.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worksheet01.py" beforeDir="false" afterPath="$PROJECT_DIR$/worksheet01.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
