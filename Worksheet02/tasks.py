@@ -2,7 +2,10 @@ import numpy as np
 import sklearn.datasets
 import sklearn.neighbors
 import matplotlib.pyplot as plt
+from sklearn import metrics
+import collections
 from ipython_genutils.py3compat import xrange
+
 
 
 class KNN(object):
@@ -18,30 +21,76 @@ class KNN(object):
         :param xquery: Data set to be compared with the training data set
         :return: Nearest neighbors
         """
-        num_test = xquery[0]
+        num_test = xquery.shape[0]
 
+        nearest_kindexes = np.empty(shape=(self.n_neighbors, num_test), dtype='uint8')
+        nearest_kneighbors = np.empty(shape=(self.n_neighbors, num_test))
+
+        # Get euclidean distances
+        distances = []
+        for i in xrange(0, num_test):
+            euclidean_distance = np.linalg.norm(self.x - xquery[i, :], axis=1)
+            distances.append(euclidean_distance)
+
+        # Get n_neighbor indexes of each xquerie with the smallest distance
+        # min_kindexes has the indexes of the neighbors until the position n_neighbors with the smallest distance
+        min_kindexes = np.argpartition(distances, self.n_neighbors)
+
+        # nearest_kindexes contains the n_neighbors for each point/data test
+        nearest_kindexes = np.empty((num_test, self.n_neighbors), dtype=int)
         for i in xrange(num_test):
-            distances = np.sum(np.abs(self.x - xquery[i, :]), axis=1)
-        min_index = np.argpartition(distances, self.n_neighbors)  # Get n_neighbor indexes with the smallest distance
+            nearest_kindexes[i] = min_kindexes[i, :self.n_neighbors]
 
-        for i in xrange(min_index):
-            nearest_neighbors = min_index[i], distances[min_index[i]]
+        nearest_kneighbors = np.empty((num_test, self.n_neighbors, self.x.shape[1]))
 
-        return nearest_neighbors
+        # Get the neighbors in the training data set
+        for i in xrange(num_test):
+            index_in_selfx = nearest_kindexes[i][:]
+            nearest_kneighbors[i][:] = self.x[index_in_selfx]
+
+        return nearest_kneighbors
 
     def predict(self, xquery):
         """
         :param xquery: data set to be classified
         :return: Predicted label to the query
         """
-        neighbors = KNN.kneighbors(xquery)
-        num_test = xquery[0]
+        neighbors = KNN.kneighbors(self, xquery)
+        num_test = xquery.shape[0]
         yprediction = np.zeros(num_test, dtype=self.y.dtype)
 
-        for i in xrange(neighbors):
-            yprediction[i] = self.y[max(neighbors[i][1], key=neighbors[i][1].count)]
+        """
+        [[[ , ]
+          [ , ]]]
+          
+        Positions 0, 0, x and 0, 1, x
+        second axis indicates position in y array
+        Objective: count the values indicated by the second axis in the split array 
+        """
 
+        # array_of_indices has the indices of the values that we are looking for in y.
+        # The first dimension of array_of_indices corresponds to the number of test.
+        array_of_indices = np.empty((num_test, self.n_neighbors), dtype=int)
+        for i in xrange(num_test):
+            split = np.split(neighbors, num_test)[i]
+            for j in xrange(self.n_neighbors):
+                # test_neighbor is selecting iteratively on of the neighbors:
+                # [[ , ] [ , ] ... [ , ]] -> [ , ]
+                test_neighbor = split[0][j]
+                indices = np.where(self.x == test_neighbor)
+                array_of_indices[i][j] = indices[0][0]
+
+        yarr = []
+        for k in array_of_indices:
+            yarr.append(collections.Counter(self.y[k]).most_common(1)[0][0])
+
+        yprediction = np.array(yarr)
         return yprediction
+
+    def score(self, prediction, reality):
+        return metrics.accuracy_score(prediction, reality)
+
+
 
 
 def task1():
@@ -51,6 +100,7 @@ def task1():
     n_test = n - n_train
     x, y = sklearn.datasets.make_moons(n_samples=n, noise=0.2,
                                        random_state=0)
+
     xtrain, ytrain = x[:n_train, ...], y[:n_train, ...]
     xtest, ytest = x[n_train:, ...], y[n_train:, ...]
 
@@ -58,32 +108,79 @@ def task1():
     plt.scatter(x[:, 0], x[:, 1], s=40, c=y)
     plt.show()
 
-    # TODO for k=5 check that our implementation predicts the same as that of
-    # sklearn.
     k = 5
     sknn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=k)
     knn = KNN(n_neighbors=k)
 
-    # analyze different values of k
+    # Fit the classifier to the data
+    sknn.fit(xtrain, ytrain)
+    knn.fit(xtrain, ytrain)
+
+    # Show first five model predictions on the test data
+    print("sknn prediction: ", sknn.predict(xtest)[0:5])
+    print("knn prediction: ", knn.predict(xtest)[0:5])
+
+    # Check accuracy of model on the test data
+    print("Accuracy with sknn: ", sknn.score(xtest, ytest))
+    print("Accuracy with knn: ", knn.score(knn.predict(xtest), ytest))
+
+    # Analyze different values of k
     ks = [2 ** i for i in range(10)]
+    accuracy_array = []
     for k in ks:
-        # TODO fit and evaluate accuracy on test data
         knn = KNN(n_neighbors=k)
 
-        # TODO plot decision boundary
-        N = 100
-        x = np.linspace(-1.5, 2.5, N)
-        y = np.linspace(-1.0, 1.5, N)
+        # Fit the classifier to the training set
+        knn.fit(xtrain, ytrain)
+
+        # Compute accuracy.
+        accuracy = knn.score(knn.predict(xtest), ytest)
+        accuracy_array.append(accuracy)
+
+    # # TODO plot decision boundary
+    # N = 100
+    # x = np.linspace(-1.5, 2.5, N)
+    # y = np.linspace(-1.0, 1.5, N)
+
+    # Plot accuracy
+    plt.title("k-NN: Varying Number of Neighbors")
+    plt.plot(ks, accuracy_array, label="Testing Accuracy")
+    plt.xlabel("Number of neighbors")
+    plt.ylabel("Accuracy")
+    plt.show()
+
+    # # Plot decision boundary
+    # plt.title("k-NN Decision Boundary")
+    # xx, yy = np.meshgrid(x, y)
+    # plt.contourf(ks, accuracy_array, predictions)
+    # plt.show()
 
 
 def task2():
     data = sklearn.datasets.load_digits()
+
     x, y = (data.images / 16.0).reshape(-1, 8 * 8), data.target
     xtrain, xtest, ytrain, ytest = sklearn.model_selection.train_test_split(
         x, y, test_size=0.25, shuffle=True, random_state=0)
 
-    # TODO analyze accuracy for different values of k
     ks = [2 ** i for i in range(4)]
+    accuracy_array = []
+    for k in ks:
+        knn = KNN(n_neighbors=k)
+
+        # Fit the classifier to the training set
+        knn.fit(xtrain, ytrain)
+
+        # Compute accuracy.
+        accuracy = knn.score(knn.predict(xtest), ytest)
+        accuracy_array.append(accuracy)
+
+    # Plot accuracy
+    plt.title("k-NN: Varying Number of Neighbors")
+    plt.plot(ks, accuracy_array, label="Testing Accuracy")
+    plt.xlabel("Number of neighbors")
+    plt.ylabel("Accuracy")
+    plt.show()
 
     # TODO plot nearest neighbors
 
@@ -113,8 +210,8 @@ def make_data(noise=0.2, outlier=1):
 
 class LinearLeastSquares(object):
     def fit(self, x, y):
-        # TODO find minimizer of least squares objective
-        pass
+        self.x = x
+        self.y = y
 
     def predict(self, xquery):
         # TODO implement prediction using linear score function
@@ -141,6 +238,6 @@ def task3():
 
 
 if __name__ == "__main__":
-    task1()
+    # task1()
     # task2()
-    # task3()
+    task3()
