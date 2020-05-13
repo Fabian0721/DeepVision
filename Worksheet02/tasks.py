@@ -102,7 +102,7 @@ def task1():
     xtest, ytest = x[n_train:, ...], y[n_train:, ...]
 
     # Visualize data via scatterplot
-    plt.scatter(x[:, 0], x[:, 1], s=40, c=y)
+    # plt.scatter(x[:, 0], x[:, 1], s=40, c=y)
     # plt.show()
 
     k = 5
@@ -143,15 +143,17 @@ def task1():
 
         plt.title("k-NN Decision Boundary")
         xx, yy = np.meshgrid(x, y)
-        plt.contourf(xx, yy, prediction.reshape(xx.shape))
-        plt.scatter(xtest[:, 0], xtest[:, 1], c=ytest)
+        zz = knn.predict(np.c_[xx.ravel(), yy.ravel()]).reshape(xx.shape)
+        plt.contourf(xx, yy, zz)
+        plt.scatter(xtest[:, 0], xtest[:, 1], c=ytest, alpha=0.8)
+        plt.show()
 
     # Plot accuracy
     plt.title("k-NN: Varying Number of Neighbors")
-    plt.plot(ks, accuracy_array, label="Testing Accuracy")
+    plt.plot(ks, accuracy_array)
     plt.xlabel("Number of neighbors")
     plt.ylabel("Accuracy")
-    # plt.show()
+    plt.show()
 
 
 def task2():
@@ -210,7 +212,6 @@ def task2():
     plt.ylabel("")
     plt.scatter(all_images[:][:][:, 0], all_images[:][:][:, 1])
     plt.show()
-    pass
 
 
 def make_data(noise=0.2, outlier=1):
@@ -238,12 +239,31 @@ def make_data(noise=0.2, outlier=1):
 
 class LinearLeastSquares(object):
     def fit(self, x, y):
-        self.x = x
-        self.y = y
+        """
+        Build linear least weight vector W
+        :param x: NxD matrix containing N attributes vectors for training
+        :param y: NxK matrix containing N class vectors for training
+        """
+        bias_trick = np.ones((x.shape[0]))
+        x = np.column_stack((bias_trick, x))
+        print(x)
+        self.wstar = np.matmul(np.matmul(np.linalg.inv(np.matmul(np.transpose(x), x)), np.transpose(x)), y)
+        print(self.wstar.shape)
 
     def predict(self, xquery):
         # TODO implement prediction using linear score function
-        pass
+        print(self.wstar[0])
+        print(self.wstar)
+        print(xquery.shape)
+        prediction = np.dot(xquery, self.wstar)
+        prediction_arr = []
+        for i in prediction:
+            if prediction[i] < 0:
+                prediction_arr.append(-1)
+            else:
+                prediction_arr.append(1)
+
+        return prediction_arr
 
 
 def task3():
@@ -251,21 +271,46 @@ def task3():
     for outlier in [1, 2, 4, 8, 16]:
         # get data. xplot, yplot is same as xtrain, ytrain but without outlier
         xtrain, xtest, ytrain, ytest, xplot, yplot = make_data(outlier=outlier)
-        # TODO visualize xtrain via scatterplot
 
+        # Plot XTrain
+        plt.title("XTrain")
+        plt.scatter(xtrain[:, 0], xtrain[:, 1])
+        # plt.show()
+
+        # Accuracy & Plot of LLS
         lls = LinearLeastSquares()
         lls.fit(xtrain, ytrain)
-        # TODO evaluate accuracy and decision boundary of LLS
+        prediction_lls = lls.predict(xtest)
+        accuracy_lls = metrics.accuracy_score(prediction_lls, ytest)
+        print("Accuracy Linear Least Squares: ", accuracy_lls)
         N = 100
         x = np.linspace(-1.0, 2.0, N)
         y = np.linspace(-1.0, 2.0, N)
+        plt.title("LLS Decision Boundary")
+        xx, yy = np.meshgrid(x, y)
+        zz = lls.predict(np.c_[xx.ravel(), yy.ravel()]).reshape(xx.shape)
+        plt.contourf(xx, yy, zz)
+        plt.scatter(xtest[:, 0], xtest[:, 1], c=ytest, alpha=0.8)
+        plt.show()
 
+        # Accuracy & Plot of SVM
         svm = sklearn.svm.LinearSVC()
         svm.fit(xtrain, ytrain)
-        # TODO evaluate accuracy and decision boundary of SVM
+        prediction_svm = svm.predict(xtest)
+        accuracy_svm = metrics.accuracy_score((prediction_svm, ytest))
+        print("Accuracy Support Vector Machine: ", accuracy_svm)
+        N = 100
+        x = np.linspace(-1.0, 2.0, N)
+        y = np.linspace(-1.0, 2.0, N)
+        plt.title("SVM Decision Boundary")
+        xx, yy = np.meshgrid(x, y)
+        zz = svm.predict(np.c_[xx.ravel(), yy.ravel()]).reshape(xx.shape)
+        plt.contourf(xx, yy, zz)
+        plt.scatter(xtest[:, 0], xtest[:, 1], c=ytest, alpha=0.8)
+        plt.show()
 
 
 if __name__ == "__main__":
     # task1()
-    task2()
-    # task3()
+    # task2()
+    task3()
