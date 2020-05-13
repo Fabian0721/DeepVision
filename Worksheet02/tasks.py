@@ -7,7 +7,6 @@ import collections
 from ipython_genutils.py3compat import xrange
 
 
-
 class KNN(object):
     def __init__(self, n_neighbors):
         self.n_neighbors = n_neighbors
@@ -91,8 +90,6 @@ class KNN(object):
         return metrics.accuracy_score(prediction, reality)
 
 
-
-
 def task1():
     # get data
     n = 1000
@@ -106,7 +103,7 @@ def task1():
 
     # Visualize data via scatterplot
     plt.scatter(x[:, 0], x[:, 1], s=40, c=y)
-    plt.show()
+    # plt.show()
 
     k = 5
     sknn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=k)
@@ -133,26 +130,27 @@ def task1():
         # Fit the classifier to the training set
         knn.fit(xtrain, ytrain)
 
+        prediction = knn.predict(xtest)
         # Compute accuracy.
-        accuracy = knn.score(knn.predict(xtest), ytest)
+        accuracy = knn.score(prediction, ytest)
         accuracy_array.append(accuracy)
 
-    # # TODO plot decision boundary
-    # N = 100
-    # x = np.linspace(-1.5, 2.5, N)
-    # y = np.linspace(-1.0, 1.5, N)
+        # Plot decision boundary
+        # TODO plot decision boundary
+        N = 100
+        x = np.linspace(-1.5, 2.5, N)
+        y = np.linspace(-1.0, 1.5, N)
+
+        plt.title("k-NN Decision Boundary")
+        xx, yy = np.meshgrid(x, y)
+        plt.contourf(xx, yy, prediction.reshape(xx.shape))
+        plt.scatter(xtest[:, 0], xtest[:, 1], c=ytest)
 
     # Plot accuracy
     plt.title("k-NN: Varying Number of Neighbors")
     plt.plot(ks, accuracy_array, label="Testing Accuracy")
     plt.xlabel("Number of neighbors")
     plt.ylabel("Accuracy")
-    plt.show()
-
-    # # Plot decision boundary
-    # plt.title("k-NN Decision Boundary")
-    # xx, yy = np.meshgrid(x, y)
-    # plt.contourf(ks, accuracy_array, predictions)
     # plt.show()
 
 
@@ -182,7 +180,37 @@ def task2():
     plt.ylabel("Accuracy")
     plt.show()
 
-    # TODO plot nearest neighbors
+    # Plot nearest neighbors
+    k = 8
+    num_test = 10
+    knn = KNN(n_neighbors=k)
+    knn.fit(xtrain, ytrain)
+    # print(knn.predict(xtest))
+    # print(knn.kneighbors(xtest)[0])
+
+    index_images = []
+    for i in ytest:
+        if ytest[i] != knn.predict(xtest)[i]:
+            index_images.append(i)
+            if len(index_images) == num_test // 4:
+                break
+
+    for i in xrange(num_test - len(index_images)):
+        index_images.append(i)
+
+    print(knn.kneighbors(xtest)[0].shape)
+    all_images = np.empty((num_test, k + 1, xtest.shape[1]))
+    print(all_images.shape)
+    for i in index_images:
+        all_images[i][:k] = knn.kneighbors(xtest)[index_images[i]]
+        all_images[i][k:] = xtest[index_images[i]]
+
+    plt.title("k-Neighbors & Tests")
+    plt.xlabel("")
+    plt.ylabel("")
+    plt.scatter(all_images[:][:][:, 0], all_images[:][:][:, 1])
+    plt.show()
+    pass
 
 
 def make_data(noise=0.2, outlier=1):
@@ -239,5 +267,5 @@ def task3():
 
 if __name__ == "__main__":
     # task1()
-    # task2()
-    task3()
+    task2()
+    # task3()
