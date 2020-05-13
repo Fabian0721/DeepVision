@@ -243,27 +243,47 @@ class LinearLeastSquares(object):
         Build linear least weight vector W
         :param x: NxD matrix containing N attributes vectors for training
         :param y: NxK matrix containing N class vectors for training
+        ------------------------------------------------------------------
+        Derivation w*:
+        L(w) = ||Xw-y||^2 = (Xw-y)^t(Xw-y)
+        ∇_w L(w) = 2X^t(Xw-y) = 0
+             ⇌ X^tXw = X^ty (X^tX is full ranked)
+             ⇌ w* = (X^tX)^-1 X^ty
+
+        Algorithm:
+        1. Bias trick is applied
         """
-        bias_trick = np.ones((x.shape[0]))
-        x = np.column_stack((bias_trick, x))
-        print(x)
-        self.wstar = np.matmul(np.matmul(np.linalg.inv(np.matmul(np.transpose(x), x)), np.transpose(x)), y)
+
+        num_samples, dim = np.shape(x)
+        w0 = np.ones((num_samples, 1))
+        data = (np.concatenate((w0, x), axis=1))
+        self.wstar = np.matmul(np.matmul(np.linalg.inv(np.matmul(np.transpose(data), data)), np.transpose(data)), y)
+        self.bias = self.wstar[0]
+        self.weight = [self.wstar[1], self.wstar[2]]
         print(self.wstar.shape)
+        print(self.bias.shape)
 
     def predict(self, xquery):
         # TODO implement prediction using linear score function
-        print(self.wstar[0])
-        print(self.wstar)
-        print(xquery.shape)
-        prediction = np.dot(xquery, self.wstar)
-        prediction_arr = []
-        for i in prediction:
-            if prediction[i] < 0:
-                prediction_arr.append(-1)
-            else:
-                prediction_arr.append(1)
+        """
+        weight:     (dim x 1)
+        bias:       (scalar)
 
-        return prediction_arr
+        :param xquery: Input to be classified (num_samples x dim)
+        :return: class prediction (+-1) values
+        """
+        num_samples, dim = np.shape(xquery)
+        class_pred = np.zeros((num_samples, 1))
+
+        y = np.matmul(xquery, self.weight)
+
+        for i in xrange(0, num_samples):
+            if y[i] < 0:
+                class_pred[i] = -1
+            else:
+                class_pred[i] = +1
+
+        return class_pred
 
 
 def task3():
@@ -297,7 +317,7 @@ def task3():
         svm = sklearn.svm.LinearSVC()
         svm.fit(xtrain, ytrain)
         prediction_svm = svm.predict(xtest)
-        accuracy_svm = metrics.accuracy_score((prediction_svm, ytest))
+        accuracy_svm = metrics.accuracy_score(prediction_svm, ytest)
         print("Accuracy Support Vector Machine: ", accuracy_svm)
         N = 100
         x = np.linspace(-1.0, 2.0, N)
@@ -313,4 +333,4 @@ def task3():
 if __name__ == "__main__":
     # task1()
     # task2()
-    task3()
+    # task3()
