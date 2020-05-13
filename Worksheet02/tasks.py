@@ -249,9 +249,12 @@ class LinearLeastSquares(object):
         ∇_w L(w) = 2X^t(Xw-y) = 0
              ⇌ X^tXw = X^ty (X^tX is full ranked)
              ⇌ w* = (X^tX)^-1 X^ty
-
+         ------------------------------------------------------------------
         Algorithm:
         1. Bias trick is applied
+        2. wstar is calculated to minimize loss function
+        3. Fields (bias, weights) are declared.
+        The weights field is the vector that will be multiplied in the score function
         """
 
         num_samples, dim = np.shape(x)
@@ -260,8 +263,6 @@ class LinearLeastSquares(object):
         self.wstar = np.matmul(np.matmul(np.linalg.inv(np.matmul(np.transpose(data), data)), np.transpose(data)), y)
         self.bias = self.wstar[0]
         self.weight = [self.wstar[1], self.wstar[2]]
-        print(self.wstar.shape)
-        print(self.bias.shape)
 
     def predict(self, xquery):
         # TODO implement prediction using linear score function
@@ -271,6 +272,8 @@ class LinearLeastSquares(object):
 
         :param xquery: Input to be classified (num_samples x dim)
         :return: class prediction (+-1) values
+        ------------------------------------------------------------------
+        To calculate the score, the matrix of data (input) is multiplied with the vector of weights
         """
         num_samples, dim = np.shape(xquery)
         class_pred = np.zeros((num_samples, 1))
