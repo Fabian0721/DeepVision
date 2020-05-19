@@ -189,6 +189,13 @@ def task2():
     knn.fit(xtrain, ytrain)
     # print(knn.predict(xtest))
     # print(knn.kneighbors(xtest)[0])
+    #
+    # f, xarr = plt.subplots(2, 10)
+    # images_and_labels = list(zip(data.images, data.target))
+    # for ax, (image, label) in zip(xarr[0, :], images_and_labels[:xarr.shape[1]]):
+    #     ax.set_axis_off()
+    #     ax.imshow(image, cmap=plt.cm.gray_r, interpolation='nearest')
+    #     ax.set_title(f"Training: {label}")
 
     index_images = []
     for i in ytest:
@@ -334,6 +341,6 @@ def task3():
 
 
 if __name__ == "__main__":
-    # task1()
+    task1()
     # task2()
     # task3()
